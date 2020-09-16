@@ -22,7 +22,8 @@ export default {
   //   router.replace({
   //     name: ROUTE_CONSTANT.HOME_LOGIN
   //   });
-  //   const startToken = jwt.sign({ app_id: process.env.VUE_APP_APP_ID }, process.env.VUE_APP_APP_SECRET);
+  //   const startToken = jwt.sign({ app_id: process.env.VUE_APP_APP_ID },
+  // process.env.VUE_APP_APP_SECRET);
   //   setTokenCookie(startToken);
   // }
 };

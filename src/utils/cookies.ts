@@ -1,10 +1,10 @@
-import cookies from 'js-cookie'
+import cookies from 'js-cookie';
 
-export function setTokenCookie(payload) {
+export function setTokenCookie(payload: any) {
   cookies.set('paperIdToken', payload);
 }
 
-export function setRefreshToken(payload) {
+export function setRefreshToken(payload: any) {
   cookies.set('paperIdRefreshToken', payload);
 }
 

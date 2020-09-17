@@ -15,7 +15,12 @@
               <input type="password" placeholder="Masukkan Kata Sandi Anda" />
             </div>
             <p class="page-login_forgot">Lupa kata Sandi ?</p>
-            <action-button text="Masuk" :className="'page-login_submit'" :loading="false" />
+            <action-button
+              text="Masuk"
+              :className="'page-login_submit'"
+              :loading="false"
+              :buttonType="'submit'"
+            />
           </div>
         </form>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <button
     class="action-button-common"
-    :class="[type, className, {loading: isLoading, disabled: disabled}]"
+    :class="[className, {loading: isLoading, disabled: disabled}]"
     :disabled="isLoading || disabled"
     :type="buttonType"
     @click="handleClick()"

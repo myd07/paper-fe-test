@@ -55,7 +55,7 @@ export default function Axios(config: any) {
     ...initialHeader
   };
   const token = getToken();
-  headers.Authorization = `${token}`;
+  headers.Authorization = `Bearer ${token}`;
   const header = {
     ...config,
     headers

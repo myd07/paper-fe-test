@@ -37,6 +37,6 @@ export default {
   background-color: #f3fafd;
 }
 .dashboard_main {
-  padding-top: 150px;
+  padding: 100px 25px 25px 20px;
 }
 </style>

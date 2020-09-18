@@ -1,0 +1,39 @@
+@import "@/assets/styles/variables";
+
+.page-finance_action {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  button {
+    background-color: $blue;
+    padding: 8px 17px;
+    border: none;
+    color: white;
+    border-radius: 19px;
+  }
+}
+
+.page-finance_table {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    thead {
+      margin-bottom: 20px;
+      th {
+        font-weight: 900;
+        padding-bottom: 20px;
+        padding-left: 5px;
+      }
+    }
+    tbody {
+      @include shadow-box;
+      tr {
+        background-color: white;
+      }
+      td {
+        border: none;
+        padding: 10px 5px;
+      }
+    }
+  }
+}

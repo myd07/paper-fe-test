@@ -1,8 +1,13 @@
 @mixin font-lato {
-  font-family: "Lato";
+  font-family: "Lato", sans-serif;
 }
 
 $green: #93c854;
 $red: #e35273;
+$blue: #4199d5;
 
 $drawer-width: 200px;
+
+@mixin shadow-box {
+  box-shadow: 2px 8px 26px 0 #c2dbed;
+}

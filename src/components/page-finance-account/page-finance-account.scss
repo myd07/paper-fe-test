@@ -1,6 +1,6 @@
 @import "@/assets/styles/variables";
 
-.page-finance_action {
+.page-finance-account_action {
   margin-bottom: 20px;
   display: flex;
   flex-direction: row-reverse;
@@ -13,7 +13,7 @@
   }
 }
 
-.page-finance_table {
+.page-finance-account_table {
   table {
     width: 100%;
     border-collapse: collapse;
@@ -23,6 +23,9 @@
         font-weight: 900;
         padding-bottom: 20px;
         padding-left: 5px;
+        &:nth-child(1) {
+          padding-left: 20px;
+        }
       }
     }
     tbody {
@@ -33,6 +36,9 @@
       td {
         border: none;
         padding: 10px 5px;
+        &:nth-child(1) {
+          padding-left: 20px;
+        }
       }
     }
   }

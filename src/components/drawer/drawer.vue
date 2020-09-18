@@ -7,7 +7,7 @@
           <router-link to="/dashboard">Dashboard</router-link>
         </li>
         <li>
-          <router-link to="/finance">Finance</router-link>
+          <router-link to="/finance-account">Finance Account</router-link>
         </li>
       </ul>
     </div>

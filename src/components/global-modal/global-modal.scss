@@ -1,0 +1,71 @@
+@import "@/assets/styles/variables";
+
+.global-modal {
+  z-index: $zindex-modal-background;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.global-modal_background {
+  z-index: $zindex-modal-background;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.global-modal_content {
+  background-color: white;
+  min-width: 300px;
+  border-radius: 6px;
+  z-index: 101;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.global-modal_content-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+}
+
+.global-modal_content-title {
+  font-weight: 900;
+}
+
+.global-modal_content-icon {
+  svg {
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+}
+
+.global-modal_content-body {
+  padding: 24px;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

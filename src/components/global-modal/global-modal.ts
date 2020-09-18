@@ -1,18 +1,22 @@
 import { mapActions, mapGetters } from "vuex";
 
-// COMPONENT IMPORT
+// COMPONENT LAZY IMPORT
+const SectionAccountForm = () =>
+  import("@/components/section-account-form/section-account-form.vue");
 
 export default {
-  components: {},
+  components: {
+    SectionAccountForm
+  },
   computed: {
     ...mapGetters({
-      getModalConfig: "app/GET_GLOBAL_MODAL"
+      getModalConfig: "app/SELECT_GLOBAL_MODAL"
     }),
     componentName() {
       return (this as any).getModalConfig.component;
     },
     canBeRendered() {
-      return true;
+      return (this as any).getModalConfig.visible;
     }
   },
   methods: {

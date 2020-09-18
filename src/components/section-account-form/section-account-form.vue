@@ -1,5 +1,5 @@
 <template>
-  <div class="section-account-form"></div>
+  <div class="section-account-form">section</div>
 </template>
 
 <script lang="ts" src="./section-account-form.ts"></script>

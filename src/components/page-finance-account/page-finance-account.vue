@@ -2,7 +2,7 @@
   <div class="page-finance-account">
     <p class="page-finance-account_title">All Finance Account</p>
     <div class="page-finance-account_action">
-      <button type="button">Create New Account</button>
+      <button @click="onAddAccount" type="button">Create New Account</button>
     </div>
     <div class="page-finance-account_table">
       <table>

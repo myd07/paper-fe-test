@@ -9,17 +9,20 @@
         </div>
       </div>
     </div>
+    <global-modal />
   </div>
 </template>
 
 <script lang="ts">
 import Drawer from "@/components/drawer/drawer.vue";
 import HeaderComponent from "@/components/header/header.vue";
+import GlobalModal from "@/components/global-modal/global-modal";
 
 export default {
   components: {
     HeaderComponent,
     Drawer,
+    GlobalModal,
   },
 };
 </script>

@@ -1,5 +1,5 @@
 import { IStore } from "@/utils/types/store";
-import actions from "@/store/auth/actions";
+import actions from "./actions";
 import mutations from "./mutations";
 import getters from "./getters";
 import { IAppState } from "@/utils/types/app/app";

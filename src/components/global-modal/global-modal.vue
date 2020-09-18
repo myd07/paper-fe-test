@@ -9,7 +9,7 @@
       <div class="global-modal_content-head" v-if="getModalConfig.hasHead">
         <span class="global-modal_content-title">{{getModalConfig.title}}</span>
         <div class="global-modal_content-icon">
-          <font-awesome-icon :icon="['fas', 'times']" @click="handleClose()" />
+          <!-- <font-awesome-icon :icon="['fas', 'times']" @click="handleClose()" /> -->
         </div>
       </div>
       <div class="global-modal_content-body" :style="[getModalConfig.contentStyle]">

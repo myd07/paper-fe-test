@@ -1,6 +1,5 @@
 <template>
   <div
-    v-show="canBeRendered"
     class="global-modal"
     :class="[{'visible': getModalConfig.visible}, getModalConfig.customClass]"
   >

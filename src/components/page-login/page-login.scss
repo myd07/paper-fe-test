@@ -33,6 +33,7 @@
   color: white;
   text-align: center;
   margin-top: 0px;
+  margin-bottom: 30px;
 }
 
 .page-login_form {
@@ -51,6 +52,7 @@
   width: 70%;
   margin: 0 auto 30px auto;
   color: white;
+  position: relative;
   label {
     margin-bottom: 5px;
   }
@@ -75,6 +77,13 @@
       /* Microsoft Edge */
       color: #93bedc;
     }
+  }
+  .hasError {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    color: $red;
+    font-size: 14px;
   }
 }
 

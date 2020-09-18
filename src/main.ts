@@ -8,10 +8,21 @@ import store from "./store";
 import "normalize.css";
 // GLOBAL CSS NIT
 import "@/assets/styles/index.scss";
+import { setUpAxios } from "@/api/axios";
+import { getToken } from "./utils/cookies";
 
-Vue.use(VueMeta, Vuelidate);
+Vue.use(VueMeta);
+Vue.use(Vuelidate);
 
 Vue.config.productionTip = false;
+
+const token = getToken();
+
+if (token !== undefined) {
+  store.commit("auth/USER_LOGIN", token);
+}
+
+setUpAxios();
 
 new Vue({
   router,

@@ -33,7 +33,7 @@ export default {
       return (this as any).$slots.content;
     }
   },
-  method: {
+  methods: {
     handleClick() {
       if ((this as any).buttonType === "button") {
         (this as any).$emit("onClick");

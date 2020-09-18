@@ -1,15 +1,14 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import store from '@/store/index';
-
+import Vue from "vue";
+import Router from "vue-router";
+import store from "@/store/index";
 
 Vue.use(Router);
 
-const login = 'login';
-const finance = 'finance';
+const login = "login";
+const finance = "finance";
 
 export default new Router({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes: [
     // {
@@ -40,24 +39,48 @@ export default new Router({
     // },
 
     {
-      path: '/',
+      path: "/",
       name: login,
-      component: () => import('@/components/page-login/page-login.vue'),
+      component: () => import("@/components/page-login/page-login.vue"),
       meta: {
-        layout: 'DefaultLayout',
-        roles: ['all'],
-        title: 'Halaman Login',
-        icon: '',
+        layout: "DefaultLayout",
+        roles: ["all"],
+        title: "Halaman Login",
+        icon: ""
       },
       beforeEnter: (to, from, next) => {
-        if ((store as any).state.auth.token !== '' && (store as any).state.auth.token !== undefined) {
+        if (
+          (store as any).state.auth.token !== "" &&
+          (store as any).state.auth.token !== undefined
+        ) {
           next({ name: finance });
         } else {
           next();
         }
-      },
-      // async before
+      }
     },
+
+    {
+      path: "/finance",
+      name: finance,
+      component: () => import("@/components/page-finance/page-finance.vue"),
+      meta: {
+        layout: "DashboardLayout",
+        roles: ["all"],
+        title: "Halaman Finance",
+        icon: ""
+      },
+      beforeEnter: (to, from, next) => {
+        if (
+          (store as any).state.auth.token !== "" &&
+          (store as any).state.auth.token !== undefined
+        ) {
+          next();
+        } else {
+          next({ name: login });
+        }
+      }
+    }
 
     // {
     //   path: '/dashboard',
@@ -99,5 +122,5 @@ export default new Router({
     //     }
     //   }
     // },
-  ],
+  ]
 });

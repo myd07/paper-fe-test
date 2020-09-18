@@ -1,29 +1,32 @@
+import Axios from "@/api/axios";
+import { removeAuthCookie, setTokenCookie } from "@/utils/cookies";
+import router from "@/router";
 
 export default {
-  // async login(context, payload) {
-  //   context.commit('POST_LOGIN');
-  //   try {
-  //     const response = await LoginApi.LOGIN(payload);
-  //     context.commit('LOGIN_DONE');
-  //     context.commit('LOGIN_SUCCESS', response.content);
-  //     router.replace({
-  //       name: ROUTE_CONSTANT.DASHBOARD_PAGE
-  //     })
-  //   } catch (error) {
-  //     context.commit('LOGIN_DONE');
-  //     message.error(error.response.data.name);
-  //   }
-  // },
-  // appendUserToStore(context, userData) {
-  //   context.commit('MAP_USER_TO_STATE', userData);
-  // },
-  // forceLogout(context) {
-  //   context.dispatch('appendUserToStore', {});
-  //   router.replace({
-  //     name: ROUTE_CONSTANT.HOME_LOGIN
-  //   });
-  //   const startToken = jwt.sign({ app_id: process.env.VUE_APP_APP_ID },
-  // process.env.VUE_APP_APP_SECRET);
-  //   setTokenCookie(startToken);
-  // }
+  async LOGIN({ commit }: any, payload: any) {
+    try {
+      commit("SET_LOADING", true);
+      const response = await Axios({
+        method: "POST",
+        url: "login",
+        data: payload
+      });
+      setTokenCookie(response.token);
+      commit("USER_LOGIN", response.token);
+      commit("SET_LOADING", false);
+      router.replace("/finance");
+    } catch (error) {
+      console.log("login error", error);
+      commit("SET_LOADING", false);
+    }
+  },
+  async LOGOUT({ commit }: any) {
+    try {
+      removeAuthCookie();
+      commit("USER_LOGIN");
+      router.replace("/");
+    } catch (error) {
+      console.log("LOGOUT error", error);
+    }
+  }
 };

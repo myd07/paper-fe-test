@@ -3,11 +3,7 @@ export interface ILogin {
   token: string;
 }
 
-export interface IAuthLoading {
-  [key: string]: boolean;
-}
-
 export interface IAuthState {
-  loading: IAuthLoading;
+  loading: boolean;
   token: string | undefined;
 }

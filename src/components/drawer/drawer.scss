@@ -1,1 +1,23 @@
-@import '@/assets/styles/variables';
+@import "@/assets/styles/variables";
+
+.drawer {
+  background: linear-gradient(135deg, #50a1d8 0%, #297eb9 100%);
+  width: $drawer-width;
+}
+
+.drawer_logo {
+  margin-top: 20px;
+}
+
+.drawer_ul {
+  list-style-type: none;
+  padding-inline-start: 20px !important;
+  li {
+    padding: 10px 0px;
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}

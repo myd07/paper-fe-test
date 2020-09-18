@@ -1,0 +1,11 @@
+@import "@/assets/styles/variables";
+
+.header {
+  position: absolute;
+  left: $drawer-width;
+  right: 0px;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+}

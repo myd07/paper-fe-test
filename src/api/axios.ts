@@ -1,24 +1,28 @@
-import axios from 'axios'
-import store from '@/store'
-import { getToken } from '@/utils/cookies'
+import axios from "axios";
+import store from "@/store";
+import { getToken } from "@/utils/cookies";
 
 let axiosInstance: any;
 
 const initialHeader: any = {
-  'Content-Type': 'application/json',
-  'Access-Control-Allow-Origin': '*',
-}
+  "Content-Type": "application/json"
+  // "Access-Control-Allow-Origin": "*"
+};
 
 export function setUpAxios() {
   axiosInstance = axios.create({
-    baseURL: process.env.VUE_APP_BASE_API,
-  })
+    baseURL: process.env.VUE_APP_BASE_API
+  });
 
   axiosInstance.interceptors.response.use(
     (response: any) => response.data,
     (error: any) => {
-      if (error.response && error.response.data.status === 401 && error.response.data.name === "TOKEN_EXPIRED") {
-        store.dispatch('auth/forceLogout')
+      if (
+        error.response &&
+        error.response.data.status === 401 &&
+        error.response.data.name === "TOKEN_EXPIRED"
+      ) {
+        // store.dispatch('auth/forceLogout')
       }
       return Promise.reject(error);
     }
@@ -43,18 +47,18 @@ export function setUpAxios() {
     // } else {
     //   return Promise.reject(error);
     // }
-  )
+  );
 }
 
 export default function Axios(config: any) {
   const headers = {
-    ...initialHeader,
-  }
+    ...initialHeader
+  };
   const token = getToken();
-  headers.Authorization = `${token}`
+  headers.Authorization = `${token}`;
   const header = {
     ...config,
     headers
-  }
+  };
   return axiosInstance.request(header);
 }

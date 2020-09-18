@@ -1,8 +1,10 @@
+import { IAuthState } from "@/utils/types/auth/auth";
+
 export default {
-  // POST_LOGIN(state) {
-  //   state.loginLoading = true;
-  // },
-  // LOGIN_DONE(state) {
-  //   state.loginLoading = false;
-  // },
+  SET_LOADING(state: IAuthState, payload: boolean) {
+    state.loading = payload;
+  },
+  USER_LOGIN(state: IAuthState, payload: string) {
+    state.token = payload;
+  }
 };

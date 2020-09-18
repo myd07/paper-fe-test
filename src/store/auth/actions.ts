@@ -1,6 +1,6 @@
 import Axios from "@/api/axios";
 import { removeAuthCookie, setTokenCookie } from "@/utils/cookies";
-import router from "@/router";
+import router, { financeAccount } from "@/router";
 
 export default {
   async LOGIN({ commit }: any, payload: any) {
@@ -14,7 +14,9 @@ export default {
       setTokenCookie(response.token);
       commit("USER_LOGIN", response.token);
       commit("SET_LOADING", false);
-      router.replace("/finance");
+      router.replace({
+        name: financeAccount
+      });
     } catch (error) {
       console.log("login error", error);
       commit("SET_LOADING", false);

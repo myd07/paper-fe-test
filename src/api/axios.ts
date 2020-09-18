@@ -1,5 +1,5 @@
 import axios from "axios";
-import store from "@/store";
+import store from "@/store/index";
 import { getToken } from "@/utils/cookies";
 
 let axiosInstance: any;
@@ -17,12 +17,13 @@ export function setUpAxios() {
   axiosInstance.interceptors.response.use(
     (response: any) => response.data,
     (error: any) => {
+      console.log(error.response);
       if (
         error.response &&
-        error.response.data.status === 401 &&
-        error.response.data.name === "TOKEN_EXPIRED"
+        error.response.status === 401
+        // error.response.data.name === "TOKEN_EXPIRED"
       ) {
-        // store.dispatch('auth/forceLogout')
+        store.dispatch("auth/LOGOUT");
       }
       return Promise.reject(error);
     }

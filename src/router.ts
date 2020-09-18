@@ -4,8 +4,8 @@ import store from "@/store/index";
 
 Vue.use(Router);
 
-const login = "login";
-const finance = "finance";
+export const login = "login";
+export const financeAccount = "finance-account";
 
 export default new Router({
   mode: "history",
@@ -53,7 +53,7 @@ export default new Router({
           (store as any).state.auth.token !== "" &&
           (store as any).state.auth.token !== undefined
         ) {
-          next({ name: finance });
+          next({ name: financeAccount });
         } else {
           next();
         }
@@ -61,13 +61,13 @@ export default new Router({
     },
 
     {
-      path: "/finance",
-      name: finance,
-      component: () => import("@/components/page-finance/page-finance.vue"),
+      path: "/finance-account",
+      name: financeAccount,
+      component: () => import("@/components/page-finance-account/page-finance-account.vue"),
       meta: {
         layout: "DashboardLayout",
         roles: ["all"],
-        title: "Halaman Finance",
+        title: "Halaman Finance Account",
         icon: ""
       },
       beforeEnter: (to, from, next) => {

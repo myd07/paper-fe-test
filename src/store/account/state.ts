@@ -1,10 +1,10 @@
 import { IStore } from "@/utils/types/store";
-import actions from "@/store/auth/actions";
+import actions from "./actions";
 import mutations from "./mutations";
 import getters from "./getters";
 import { IAccountState } from "@/utils/types/account/account";
 
-const auth: IStore<IAccountState> = {
+const account: IStore<IAccountState> = {
   state: {
     loading: {
       list: false,
@@ -18,4 +18,4 @@ const auth: IStore<IAccountState> = {
   getters
 };
 
-export default auth;
+export default account;
